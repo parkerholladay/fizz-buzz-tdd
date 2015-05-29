@@ -47,6 +47,7 @@ namespace FizzBuzz.Tests
 
         [TestCase(15)]
         [TestCase(30)]
+        [TestCase(45)]
         public void CalculatorShouldReturnFizzBuzz(int input)
         {
             Assert.That(_calculator.Calculate(input), Is.EqualTo("FizzBuzz"));
