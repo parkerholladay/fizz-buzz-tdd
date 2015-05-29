@@ -18,6 +18,9 @@ namespace FizzBuzz.Tests
         [TestCase(4)]
         [TestCase(7)]
         [TestCase(8)]
+        [TestCase(11)]
+        [TestCase(13)]
+        [TestCase(14)]
         public void CalculatorShouldReturnNumberAsString(int input)
         {
             Assert.That(_calculator.Calculate(input), Is.EqualTo(input.ToString()));
@@ -26,6 +29,7 @@ namespace FizzBuzz.Tests
         [TestCase(3)]
         [TestCase(6)]
         [TestCase(9)]
+        [TestCase(12)]
         public void CalculatorShouldReturnFizz(int input)
         {
             Assert.That(_calculator.Calculate(input), Is.EqualTo("Fizz"));
@@ -36,6 +40,12 @@ namespace FizzBuzz.Tests
         public void CalculatorShouldReturnBuzz(int input)
         {
             Assert.That(_calculator.Calculate(input), Is.EqualTo("Buzz"));
+        }
+
+        [Test]
+        public void CalculatorShouldReturnFizzBuzz()
+        {
+            Assert.That(_calculator.Calculate(15), Is.EqualTo("FizzBuzz"));
         }
     }
 }
