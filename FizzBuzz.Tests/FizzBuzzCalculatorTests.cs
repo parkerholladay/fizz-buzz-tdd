@@ -30,6 +30,7 @@ namespace FizzBuzz.Tests
         [TestCase(6)]
         [TestCase(9)]
         [TestCase(12)]
+        [TestCase(18)]
         public void CalculatorShouldReturnFizz(int input)
         {
             Assert.That(_calculator.Calculate(input), Is.EqualTo("Fizz"));
@@ -37,15 +38,18 @@ namespace FizzBuzz.Tests
 
         [TestCase(5)]
         [TestCase(10)]
+        [TestCase(20)]
+        [TestCase(25)]
         public void CalculatorShouldReturnBuzz(int input)
         {
             Assert.That(_calculator.Calculate(input), Is.EqualTo("Buzz"));
         }
 
-        [Test]
-        public void CalculatorShouldReturnFizzBuzz()
+        [TestCase(15)]
+        [TestCase(30)]
+        public void CalculatorShouldReturnFizzBuzz(int input)
         {
-            Assert.That(_calculator.Calculate(15), Is.EqualTo("FizzBuzz"));
+            Assert.That(_calculator.Calculate(input), Is.EqualTo("FizzBuzz"));
         }
     }
 }

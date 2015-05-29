@@ -4,12 +4,10 @@
     {
         public string Calculate(int input)
         {
-            var output = "";
-
-            if (input % 3 == 0) output += "Fizz";
-            if (input % 5 == 0) output += "Buzz";
-
-            return string.IsNullOrWhiteSpace(output) ? input.ToString() : output;
+            return input%15 == 0 ? "FizzBuzz" :
+                input%5 == 0 ? "Buzz" :
+                input%3 == 0 ? "Fizz" :
+                input.ToString();
         }
     }
 }
