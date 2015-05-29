@@ -5,22 +5,32 @@ namespace FizzBuzz.Tests
     [TestFixture]
     public class FizzBuzzCalculatorTests
     {
+        private FizzBuzzCalculator _calculator;
+
+        [SetUp]
+        public void Setup()
+        {
+            _calculator = new FizzBuzzCalculator();
+        }
+
         [TestCase(1)]
         [TestCase(2)]
         [TestCase(4)]
         public void CalculatorShouldReturnNumberAsString(int input)
         {
-            var calculator = new FizzBuzzCalculator();
-
-            Assert.That(calculator.Calculate(input), Is.EqualTo(input.ToString()));
+            Assert.That(_calculator.Calculate(input), Is.EqualTo(input.ToString()));
         }
 
         [Test]
         public void CalculatorShouldReturnFizz()
         {
-            var calculator = new FizzBuzzCalculator();
+            Assert.That(_calculator.Calculate(3), Is.EqualTo("Fizz"));
+        }
 
-            Assert.That(calculator.Calculate(3), Is.EqualTo("Fizz"));
+        [Test]
+        public void CalculatorShouldReturnBuzz()
+        {
+            Assert.That(_calculator.Calculate(5), Is.EqualTo("Buzz"));
         }
     }
 }
