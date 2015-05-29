@@ -5,12 +5,13 @@ namespace FizzBuzz.Tests
     [TestFixture]
     public class FizzBuzzCalculatorTests
     {
-        [Test]
-        public void CalculatorShouldReturnNumberAsString()
+        [TestCase(1)]
+        [TestCase(2)]
+        public void CalculatorShouldReturnNumberAsString(int input)
         {
             var calculator = new FizzBuzzCalculator();
 
-            Assert.That(calculator.Calculate(1), Is.EqualTo("1"));
+            Assert.That(calculator.Calculate(input), Is.EqualTo(input.ToString()));
         }
     }
 }
