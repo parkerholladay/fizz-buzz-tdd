@@ -19,7 +19,7 @@ namespace FizzBuzz.Tests
                 yield return new TestCaseData(8).Returns("8");
                 yield return new TestCaseData(9).Returns("Fizz");
                 yield return new TestCaseData(10).Returns("Buzz");
-                yield return new TestCaseData(11).Returns("11");
+                yield return new TestCaseData(11).Returns("Bazz");
                 yield return new TestCaseData(12).Returns("Fizz");
                 yield return new TestCaseData(13).Returns("13");
                 yield return new TestCaseData(14).Returns("Bizz");
@@ -30,10 +30,19 @@ namespace FizzBuzz.Tests
                 yield return new TestCaseData(19).Returns("19");
                 yield return new TestCaseData(20).Returns("Buzz");
                 yield return new TestCaseData(21).Returns("FizzBizz");
+                yield return new TestCaseData(22).Returns("Bazz");
+                yield return new TestCaseData(23).Returns("23");
+                yield return new TestCaseData(24).Returns("Fizz");
                 yield return new TestCaseData(25).Returns("Buzz");
                 yield return new TestCaseData(30).Returns("FizzBuzz");
+                yield return new TestCaseData(33).Returns("FizzBazz");
                 yield return new TestCaseData(35).Returns("BuzzBizz");
                 yield return new TestCaseData(45).Returns("FizzBuzz");
+                yield return new TestCaseData(55).Returns("BuzzBazz");
+                yield return new TestCaseData(77).Returns("BizzBazz");
+                yield return new TestCaseData(165).Returns("FizzBuzzBazz");
+                yield return new TestCaseData(385).Returns("BuzzBizzBazz");
+                yield return new TestCaseData(1155).Returns("FizzBuzzBizzBazz");
             }
         }
     }
