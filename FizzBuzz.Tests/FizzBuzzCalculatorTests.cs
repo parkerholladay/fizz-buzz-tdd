@@ -1,7 +1,41 @@
-﻿using NUnit.Framework;
+﻿using System.Collections;
+using NUnit.Framework;
 
 namespace FizzBuzz.Tests
 {
+    public class FizzBuzzTestData
+    {
+        public static IEnumerable TestCases
+        {
+            get
+            {
+                yield return new TestCaseData(1).Returns("1");
+                yield return new TestCaseData(2).Returns("2");
+                yield return new TestCaseData(3).Returns("Fizz");
+                yield return new TestCaseData(4).Returns("4");
+                yield return new TestCaseData(5).Returns("Buzz");
+                yield return new TestCaseData(6).Returns("Fizz");
+                yield return new TestCaseData(7).Returns("7");
+                yield return new TestCaseData(8).Returns("8");
+                yield return new TestCaseData(9).Returns("Fizz");
+                yield return new TestCaseData(10).Returns("Buzz");
+                yield return new TestCaseData(11).Returns("11");
+                yield return new TestCaseData(12).Returns("Fizz");
+                yield return new TestCaseData(13).Returns("13");
+                yield return new TestCaseData(14).Returns("14");
+                yield return new TestCaseData(15).Returns("FizzBuzz");
+                yield return new TestCaseData(16).Returns("16");
+                yield return new TestCaseData(17).Returns("17");
+                yield return new TestCaseData(18).Returns("Fizz");
+                yield return new TestCaseData(19).Returns("19");
+                yield return new TestCaseData(20).Returns("Buzz");
+                yield return new TestCaseData(25).Returns("Buzz");
+                yield return new TestCaseData(30).Returns("FizzBuzz");
+                yield return new TestCaseData(45).Returns("FizzBuzz");
+            }
+        }
+    }
+
     [TestFixture]
     public class FizzBuzzCalculatorTests
     {
@@ -13,44 +47,10 @@ namespace FizzBuzz.Tests
             _calculator = new FizzBuzzCalculator();
         }
 
-        [TestCase(1)]
-        [TestCase(2)]
-        [TestCase(4)]
-        [TestCase(7)]
-        [TestCase(8)]
-        [TestCase(11)]
-        [TestCase(13)]
-        [TestCase(14)]
-        public void CalculatorShouldReturnNumberAsString(int input)
+        [Test, TestCaseSource(typeof(FizzBuzzTestData), "TestCases")]
+        public string CalculateTests(int input)
         {
-            Assert.That(_calculator.Calculate(input), Is.EqualTo(input.ToString()));
-        }
-
-        [TestCase(3)]
-        [TestCase(6)]
-        [TestCase(9)]
-        [TestCase(12)]
-        [TestCase(18)]
-        public void CalculatorShouldReturnFizz(int input)
-        {
-            Assert.That(_calculator.Calculate(input), Is.EqualTo("Fizz"));
-        }
-
-        [TestCase(5)]
-        [TestCase(10)]
-        [TestCase(20)]
-        [TestCase(25)]
-        public void CalculatorShouldReturnBuzz(int input)
-        {
-            Assert.That(_calculator.Calculate(input), Is.EqualTo("Buzz"));
-        }
-
-        [TestCase(15)]
-        [TestCase(30)]
-        [TestCase(45)]
-        public void CalculatorShouldReturnFizzBuzz(int input)
-        {
-            Assert.That(_calculator.Calculate(input), Is.EqualTo("FizzBuzz"));
+            return _calculator.Calculate(input);
         }
     }
 }
