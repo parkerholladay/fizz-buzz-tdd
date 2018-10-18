@@ -10,7 +10,8 @@ namespace FizzBuzz
             { 3, "Fizz" },
             { 5, "Buzz" },
             { 7, "Bizz" },
-            { 11, "Bazz" }
+            { 11, "Bazz" },
+            { 13, "Boom" }
         };
 
         public string Calculate(int input)
